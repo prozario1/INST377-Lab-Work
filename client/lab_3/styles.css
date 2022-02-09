@@ -142,7 +142,7 @@
       color: rgb(16, 146, 197);
   }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 600px) {
     .head{
         height: auto;
         display: table; 
