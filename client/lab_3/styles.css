@@ -2,7 +2,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: ‘Segoe UI’, Candara, ‘Bitstream Vera Sans’, ‘DejaVu Sans’, ‘Bitsream Vera Sans’, ‘Trebuchet MS’, Verdana, ‘Verdana Ref’, sans-serif;
+    
   }
+
   
   .menu-container {
     color: #fff;
@@ -123,10 +126,7 @@
     
     
   }
-  .wrapper {
-    font-family: ‘Segoe UI’, Candara, ‘Bitstream Vera Sans’, ‘DejaVu Sans’, ‘Bitsream Vera Sans’, ‘Trebuchet MS’, Verdana, ‘Verdana Ref’, sans-serif;
-    margin:0;
-  }
+
   a {
     
     text-decoration: none;
@@ -142,21 +142,21 @@
       color: rgb(16, 146, 197);
   }
 
-@media only screen and (max-width: 600px) {
-    .head{
-        height: auto;
-        display: table; 
-    }
-    
-    .menu-container {
-        height:max-content;
-        
-      }
-      .photo-grid {
-        flex-direction: row-reverse;
-    }
+@media only screen and (max-width: 320px) {
+
       
     }
+/* Desktop Styles */
+@media only screen and (min-width: 961px) {
+    .page {
+      width: 1320px;
+      margin: 0 auto;
+    }
+    
+    .header {
+      height: 400px;
+    }
+  }
 
 
 
