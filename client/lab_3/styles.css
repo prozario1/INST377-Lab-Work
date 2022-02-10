@@ -143,8 +143,42 @@
   }
 
 @media only screen and (max-width: 320px) {
+  .section-1{
+    display: flex;
+    width: 610px;
+    flex-direction: column;
+  }
 
-      
+
+  .logo{
+    display: flex;
+    width: 400px;
+    justify-content: center;
+    flex-direction: column;
+  }
+.photo-grid-container{
+    width: 420px;
+    margin-left: 30%;
+}
+.photo-grid-item{
+    display: flex;
+    height: 200px;
+    width: 200px;
+        
+}
+
+
+.footer{
+    display: flex;
+    width: 610px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+.footer-item{
+width: 240px;
+}
+
     }
 /* Desktop Styles */
 @media only screen and (min-width: 961px) {
