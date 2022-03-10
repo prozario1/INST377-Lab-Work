@@ -108,7 +108,7 @@
   
   .something {
     display: flex;
-  
+  flex-direction: column;
     background-color: beige;
     border: 5px solid beige;
     border-radius: 3px;
@@ -118,10 +118,17 @@
   }
   .columns .side .bar{
     display: flex;
-  
+  /* flex-direction: column; */
     width:100%;
     padding: 100px;
   }
 
+  /* .page_item {
+      display: flex;
+      flex-direction: column;
+      padding: 15px;
+      border-radius: 4px;
+      background-color: beige;
+  } */
 
   
