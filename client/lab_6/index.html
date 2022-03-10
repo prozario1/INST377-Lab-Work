@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paul Rozario Lab 5 - HTML Forms, CSS Frameworks, HTTP Methods</title>
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+
+    <link rel="stylesheet" href="styles.css">
+
+  </head>
+  <body >
+    <div class="lab-header">
+    <h1>Paul Rozario Lab 6 - Handling JSON Responses from REST-ful APIs
+    </h1>
+    </div>
+    <br>
+    <div class="columns">
+      <div class="column">
+        <form action="" method="GET" class='main_form'>
+
+          <div class="field">
+            <label class="label">First Name</label>
+              <input  class="input" type="text" placeholder="john doe">
+          </div>
+
+          <div class="field">
+            <label class="label">Food Preference</label>
+              <input  class="input" type="text" placeholder="pizza, cheeseburger">
+          </div>
+
+          <div class="field">
+            <label class="label">Veggie or Vegan?</label>
+
+              <label class="radio">
+                <input type="radio" name="veggie">Yes
+                 </label>
+
+              <label class="radio">
+                <input type="radio" name="vegan"> No
+              </label>
+          </div>
+
+          <button class= "submit_button">Submit</button>
+          
+      </form>
+      </div>
+      <div class="column side">
+        <div class="bar">
+            <div class="something">
+                <ul id= "resto-list"></ul>
+              This is going to be something in two weeks.
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src= "script.js" charset="UTF-8"></script>
+
+  </body>
+</html>
