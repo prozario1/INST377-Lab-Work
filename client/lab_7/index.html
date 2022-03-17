@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paul Rozario Lab 7 - Filtering Data With A Typeahead Form Input</title>
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+
+    <link rel="stylesheet" href="styles.css">
+
+  </head>
+  <body >
+    <div class="lab-header">
+    <h1>Paul Rozario Lab 7 - Filtering Data With A Typeahead Form Input
+    </h1>
+    </div>
+    <br>
+    <div class="columns">
+      <div class="column">
+        <form action="" method="GET" class='main_form'>
+
+          <div class="field">
+            <label for='resto_name' class="label">Restaurant Name</label>
+              <input name='resto_name' id='resto_name' class="input" type="text" placeholder="taco, pizza, etc">
+
+          </div>
+
+          <div class="field">
+            <label for='zipcode' class="label">Zip Code</label>
+            <input name='zipcode' id='zipcode' class="input" type="text" placeholder="e.g 20742">
+          </div>
+
+          <!-- <div class="field">
+            <label class="label">Veggie or Vegan?</label>
+
+              <label class="radio">
+                <input type="radio" name="veggie">Yes
+                 </label>
+
+              <label class="radio">
+                <input type="radio" name="vegan"> No
+              </label>
+          </div> -->
+
+          <button class= "submit_button">Change Restaurants</button>
+          
+      </form>
+      </div>
+      <div class="column side">
+        <div class="bar">
+            <div class="something">
+                <h2>Restaurant List</h2>
+                <ul class= "resto-list"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src= "script.js" charset="UTF-8"></script>
+
+  </body>
+</html>
