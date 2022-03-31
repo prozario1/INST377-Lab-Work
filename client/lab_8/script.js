@@ -69,7 +69,7 @@ async function mainEvent() { // the async keyword means we can make API requests
 
   console.log(storedDataArray);
   //   const arrayFromJson = {data: []}; // TODO REMOVE
-  if (storedDataArray.length > 0 && storedDataArray != null) {
+  if (storedDataArray != null && storedDataArray.length > 0) {
     // prevents race condition on data load
     submit.style.display = 'block';
     let currentArray = [];
