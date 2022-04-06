@@ -42,6 +42,12 @@ function initMap(targetId) {
 }
 
 function addMapMarkers(map, collection) {
+  map.eachLayer((layer) => {
+    if (layer instanceof L.Marker) {
+      layer.remove();
+    }
+  });
+
   collection.forEach((item) => {
     const point = item.geocoded_column_1?.coordinates;
     console.log(item.geocoded_column_1?.coordinates);
@@ -83,16 +89,16 @@ async function mainEvent() { // the async keyword means we can make API requests
       console.log(selectResto);
       createHtmlList(selectResto);
     });
-    zipcode.addEventListener('input', async (event) => {
-      console.log(event.target.value);
-      const selectZip = arrayFromJson.data.filter((item) => {
-        const lowerName = item.name.toLowerCase();
-        const lowerValue = event.target.value.toLowerCase();
-        return lowerName.includes(lowerValue);
-      });
-      console.log(selectZip);
-      createHtmlList(selectZip);
-    });
+    // zipcode.addEventListener('input', async (event) => {
+    //   console.log(event.target.value);
+    //   const selectZip = arrayFromJson.data.filter((item) => {
+    //     const lowerName = item.name.toLowerCase();
+    //     const lowerValue = event.target.value.toLowerCase();
+    //     return lowerName.includes(lowerValue);
+    //   });
+    //   console.log(selectZip);
+    //   createHtmlList(selectZip);
+    // });
     form.addEventListener('submit', async (submitEvent) => { // async has to be declared all the way to get an await
       submitEvent.preventDefault(); // This prevents your page from refreshing!
       //   console.log('form submission'); // this is substituting for a "breakpoint"
