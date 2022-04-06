@@ -28,7 +28,7 @@ function createHtmlList(collection) {
 }
 function initMap(targetId) {
   const latLong = [38.7849, -76.8721];
-  const map = L.map(targetId).setView(latLong, 13);
+  const map = L.map(targetId).setView(latLong, 10);
   L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
     maxZoom: 18,
@@ -89,16 +89,16 @@ async function mainEvent() { // the async keyword means we can make API requests
       console.log(selectResto);
       createHtmlList(selectResto);
     });
-    // zipcode.addEventListener('input', async (event) => {
-    //   console.log(event.target.value);
-    //   const selectZip = arrayFromJson.data.filter((item) => {
-    //     const lowerName = item.name.toLowerCase();
-    //     const lowerValue = event.target.value.toLowerCase();
-    //     return lowerName.includes(lowerValue);
-    //   });
-    //   console.log(selectZip);
-    //   createHtmlList(selectZip);
-    // });
+    zipcode.addEventListener('input', async (event) => {
+      console.log(event.target.value);
+      const selectZip = arrayFromJson.data.filter((item) => {
+        const lowerName = item.name.toLowerCase();
+        const lowerValue = event.target.value.toLowerCase();
+        return lowerName.includes(lowerValue);
+      });
+      console.log(selectZip);
+      createHtmlList(selectZip);
+    });
     form.addEventListener('submit', async (submitEvent) => { // async has to be declared all the way to get an await
       submitEvent.preventDefault(); // This prevents your page from refreshing!
       //   console.log('form submission'); // this is substituting for a "breakpoint"
