@@ -55,15 +55,41 @@ function addMapMarkers(map, collection) {
   });
 }
 
+function refreshList(target, storage) {
+  target.addEventListener('click', async(event) => {
+    event.preventDefault();
+    localStorage.clear();
+    const results = await fetch('/api/foodServicesPG');
+    const arrayFromJson = await results.json();
+    console.log(arrayFromJson);
+    localStorage.setItem(storage, JSON.stringify(arrayFromJson.data));
+    location.reload();
+  });
+}
+
+function inputListener(target) {
+  target.addEventListener('input', async (event) => {
+    console.log(event.target.value);
+    const selectResto = storedDataArray.filter((item) => {
+      const lowerName = item.name.toLowerCase();
+      const lowerValue = event.target.value.toLowerCase();
+      return lowerName.includes(lowerValue);
+    });
+    console.log(selectResto);
+    createHtmlList(selectResto);
+  });
+}
 async function mainEvent() { // the async keyword means we can make API requests
   console.log('script loaded');
   const form = document.querySelector('.main_form');
   const submit = document.querySelector('.submit_button');
   const resto = document.querySelector('#resto_name');
   const zipcode = document.querySelector('#zipcode');
+  const refresh = document.querySelector('#refresh_list');
   const map = initMap('map');
   const retrievalVar = 'restaurants';
   submit.style.display = 'none';
+  refreshList(refresh, retrievalVar);
   if (localStorage.getItem(retrievalVar) === undefined) {
     const results = await fetch('/api/foodServicesPG'); // This accesses some data from our API
     const arrayFromJson = await results.json(); // This changes it into data we can use - an object
@@ -75,30 +101,11 @@ async function mainEvent() { // the async keyword means we can make API requests
 
   console.log(storedDataArray);
   //   const arrayFromJson = {data: []}; // TODO REMOVE
-  if (storedDataArray.length > 0) {
+  if (storedDataArray?.length > 0) {
     // prevents race condition on data load
     submit.style.display = 'block';
     let currentArray = [];
-    resto.addEventListener('input', async (event) => {
-      console.log(event.target.value);
-      const selectResto = storedDataArray.filter((item) => {
-        const lowerName = item.name.toLowerCase();
-        const lowerValue = event.target.value.toLowerCase();
-        return lowerName.includes(lowerValue);
-      });
-      console.log(selectResto);
-      createHtmlList(selectResto);
-    });
-    zipcode.addEventListener('input', async (event) => {
-      console.log(event.target.value);
-      const selectZip = arrayFromJson.data.filter((item) => {
-        const lowerName = item.name.toLowerCase();
-        const lowerValue = event.target.value.toLowerCase();
-        return lowerName.includes(lowerValue);
-      });
-      console.log(selectZip);
-      createHtmlList(selectZip);
-    });
+    inputListener(resto);
     form.addEventListener('submit', async (submitEvent) => { // async has to be declared all the way to get an await
       submitEvent.preventDefault(); // This prevents your page from refreshing!
       //   console.log('form submission'); // this is substituting for a "breakpoint"
